@@ -9,21 +9,17 @@
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>Proyectito Maven Webapp</name>
+  <name>Examen3</name>
   <url>http://maven.apache.org</url>
 
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>mysql</groupId>
-      <artifactId>mysql-connector-java</artifactId>
-      <version>8.3.0</version>
-    </dependency>
-
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-dbcp2</artifactId>
@@ -59,7 +55,7 @@
   </dependencies>
 
   <build>
-    <finalName>Proyectito</finalName>
+    <finalName>Examen3</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.tomcat.maven</groupId>

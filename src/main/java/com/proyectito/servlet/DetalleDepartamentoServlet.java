@@ -42,7 +42,6 @@ public class DetalleDepartamentoServlet extends HttpServlet {
         if (departamento == null) {
             request.setAttribute("error", "Departamento no encontrado");
         } else {
-            // Ordenar empleados si se especificó parámetro de orden
             List<Employee> empleadosOrdenados = departamento.getEmpleados().stream()
                     .sorted("apellido".equalsIgnoreCase(orden)
                             ? (e1, e2) -> e1.getLastName().compareToIgnoreCase(e2.getLastName())

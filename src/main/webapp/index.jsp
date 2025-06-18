@@ -1,83 +1,98 @@
-<%@ page import="com.proyectito.model.Usuario" %>
-<%
-    HttpSession sesion = request.getSession(false);
-    Usuario usuario = (sesion != null) ? (Usuario) sesion.getAttribute("usuario") : null;
-%>
-
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Inicio</title>
+    <meta charset="UTF-8">
+    <title>Inicio - Proyecto</title>
     <style>
         body {
-            background-image: url("images/inicio.jpg");
+            background-image: url("images/ini.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             height: 100vh;
             margin: 0;
-            font-family: Arial, sans-serif;
-            color: white;
-
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #f0f0f0;
             display: flex;
             justify-content: center;
             align-items: center;
+            text-align: center;
+            overflow: hidden;
         }
-        .contenido {
-            background-color: rgba(0, 0, 0, 0.6);
-            padding: 40px;
-            width: 60%;
-            max-width: 600px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
+        .container {
+            background-color: rgba(15, 15, 15, 0.8);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+            max-width: 700px;
+            width: 90%;
+            animation: fadeIn 1.2s ease-out;
         }
-        input, button {
-            margin: 10px 0;
-            padding: 8px;
-            width: 100%;
-            font-size: 1rem;
-            border: none;
-            border-radius: 5px;
+
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 25px;
+            color: #5FFB17;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
         }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.6;
+            margin-bottom: 35px;
         }
-        a {
-            color: lightblue;
+
+        strong {
+            color: #00E0FF;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .button-group a {
+            background-color: #00b894;
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            width: 75%;
+            max-width: 280px;
+            transition: all 0.3s ease;
+        }
+
+        .button-group a:hover {
+            background-color: #00a17a;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-<div class="contenido">
-    <% if (usuario != null) { %>
-    <h2>Bienvenido, <%= usuario.getNombre() %>!</h2>
-    <img src="<%= usuario.getAvatar() %>" alt="Avatar" style="width:100px; height:100px; border-radius:50%; border:2px solid white; margin-bottom: 20px;"/>
-    <form action="foro" method="get">
-        <button type="submit">Ir al foro</button>
-    </form>
-    <form action="editar_usuario.jsp" method="post">
-        <button type="submit">Editar cuenta</button>
-    </form>
-    <form action="logout.jsp" method="post">
-        <button type="submit">Cerrar sesion</button>
-    </form>
-    <% } else { %>
-    <h2>Iniciar sesion</h2>
+<div class="container">
+    <h1>EXAMEN III</h1>
+    <p>
+        <strong>Nombre:</strong> Jose Armando Pichal Pio<br>
+        <strong>Nombre:</strong> Jose Canela Beltran<br>
+        <strong>Materia:</strong> Paradigmas de Programacion II
+    </p>
 
-    <% String error = request.getParameter("error"); %>
-    <% if (error != null) { %>
-    <p style="color:red;">Correo o contrasena incorrectos</p>
-    <% } %>
-    <form action="login" method="post">
-        Correo: <input type="email" name="correo" required /><br/>
-        Contrasena: <input type="password" name="contrasena" required /><br/>
-        <input type="submit" value="Ingresar" />
-    </form>
-    <p><a href="formulario.jsp">No tienes cuenta? Registrate aqui</a></p>
-    <% } %>
+    <div class="button-group">
+        <a href="empleados">Ver Empleados</a>
+        <a href="departamentos">Ver Departamentos</a>
+    </div>
 </div>
 
 </body>
